@@ -1,0 +1,198 @@
+* {
+    margin: 1;
+    padding: 1;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/*Fundo da página*/
+body {
+    background-color: rgb(30, 30, 30);
+    display: 200%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+}
+
+/*Botão cabeçalho*/
+button {
+    background-color: #000000;
+    position: fixed;
+    left: 13vw; /* Definir a posição horizontal usando vh o objeto fica fixo */
+    top: 40px; /* Definir a posição vertical em pixels */
+    /*right: 30vh;*/
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 60px;
+    margin-top: 50px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border: 2px solid #000000;
+    /*background: transparent;*/
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    overflow: hidden;
+    /*text-transform: uppercase;*/
+}
+button::before {
+    background: #000000;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: width 0.5s;
+}
+button:hover::before {
+    width: 50%;
+}
+
+/*Game*/
+.game-board {
+    width: 100%;
+    height: 500px;
+    border-bottom: 40px solid green; /* grama do jogo*/
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden; /* Tudo que sair do quadro não aparecer */
+    background: linear-gradient(#87ceeb, #e0f6ff); /*fundo do jogo*/
+}
+
+/* Objeto pipe */
+.pipe {
+    position: absolute;
+    bottom: 0;
+    width: 80px;
+    /*right: -80px;  Animação começar antes do quadro*/
+    /*left: 120px;  limite do objeto pipe enconstando no objeto mario */
+    animation: pipe-animation infinite linear; /* Chamando a animação velocidade*/
+}
+
+/* Objeto pipe */
+.mario {
+    position: absolute;
+    bottom: 0; /*120px posição de jump do mario acima od pipe / 96px posiçao de altura que o jump encosta na pipe*/
+    width: 150px;
+}
+
+/* Objeto nuvem */
+.clouds {
+    position: absolute;
+    width: 400px;
+    animation: clouds-animation 13s infinite linear;
+}
+
+.cloudsTwo {
+    position: absolute;
+    width: 400px;
+    animation: clouds-animationTwo 18s infinite linear;
+}
+
+/* Objeto gameOver */
+.gameOver {
+    position: absolute;
+    width: 400px;
+    display: none;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fallAnimation 1s forwards;
+}
+
+/* função jump */
+.jump {
+    animation: mario-jump-animation 500ms ease-out; /* Chamando a animação */
+}
+
+/* config som */
+#audioContainer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Animação do objeto pipe */
+@keyframes pipe-animation {
+    from {
+        right: -80px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+/* Animação do objeto mario pular */
+@keyframes mario-jump-animation {
+    0% {
+        bottom: 0;
+    }
+
+    40% {
+        bottom: 180px;
+    }
+
+    50% {
+        bottom: 180px;
+    }
+
+    60% {
+        bottom: 180px;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
+
+/* Animação nuvem */
+@keyframes clouds-animation {
+    from {
+        right: -400px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+@keyframes clouds-animationTwo {
+    
+	0% {
+        right: -400px;
+    }
+	1% {
+        right: -400px;
+    }
+	10% {
+        right: -400px;
+    }
+	20% {
+        right: -400px;
+    }
+    100% {
+        right: 100%;
+    }
+	
+	
+	/*
+	from {
+        right: -400px;
+    }
+
+    to {
+        right: 100%;
+    }*/
+}
+
+@keyframes fallAnimation {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
