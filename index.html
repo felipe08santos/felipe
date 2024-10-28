@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width"
+            ,
+            initial-scale="1.0"
+        />
+
+        <link rel="stylesheet" href="./css/style.css" />
+        <style>
+            .music-player {
+                display: none;
+            }
+
+        </style>
+        <script src="./js/script.js" defer></script>
+
+        <title>Mario Bros Game Jump</title>
+    </head>
+    <body style="background-image: url('./images/background-super-mario-bros-one.jpg')"></body>
+
+        <div class="image-container">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <img src="./images/mario-kart-logo-png.png" alt="Imagem PNG" style=" top: 1; width: 200px; height: 145px;" />  
+        </div>
+
+        <div>
+            <button id="reloadButton">Reiniciar o Jogo</button>
+                <script>
+                document.getElementById("reloadButton").addEventListener("click", function() {
+                location.reload();
+                });
+                </script>
+        </div>
+
+        <div class="game-board">
+            <img src="./images/clouds.png" class="cloudsTwo" />
+			<img src="./images/clouds.png" class="clouds" />
+            <img src="./images/mario.gif" class="mario" />
+            <img src="./images/pipe.png" class="pipe" />
+            <img src="./images/mario-game-over.png" class="gameOver" />
+        </div>
+        
+
+        <div>
+            <audio id="audioContainer" controls style="display: none;">
+                <source
+                    src="./music/super-mario-world-Overworld.mp3"
+                    allow="autoplay"
+                    type="audio/mp3"
+                />
+            </audio>
+
+            <audio id="audioContainerGameOver" controls style="display: none;">
+                <source
+                    src="./music/super-mario-world-game-Over.mp3"
+                    allow="autoplay"
+                    type="audio/mp3"
+                />
+            </audio>
+        </div>
+    </body> 
+</html>
